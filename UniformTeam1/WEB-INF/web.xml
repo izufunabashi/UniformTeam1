@@ -1,4 +1,4 @@
-<!--サーブレットマッピングの設定を行うファイルです。-->
+<!-- サーブレットマッピングの設定を行うファイルです。-->
 
 <web-app>
 
@@ -63,6 +63,10 @@
 		<servlet-name>insertMemberMapping</servlet-name>
 		<servlet-class>servlet.InsertMemberServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>inputUserMapping</servlet-name>
+		<servlet-class>servlet.InputUserServlet</servlet-class>
+	</servlet>
 
 
 	<!-- サーブレットのマッピング -->
@@ -125,6 +129,10 @@
 	<servlet-mapping>
 		<servlet-name>insertMemberMapping</servlet-name>
 		<url-pattern>/insertMember</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>inputUserMapping</servlet-name>
+		<url-pattern>/inputUser</url-pattern>
 	</servlet-mapping>
 
 </web-app>

@@ -17,7 +17,7 @@
 		<table>
 			<tr><td><a href="<%=request.getContextPath() %>/listUniform">商品一覧</a></td></tr>
 			<tr><td></td></tr>
-			<tr><td><a href="<%=request.getContextPath() %>/insertUniform">商品追加</a></td></tr>
+			<tr><td><a href="<%=request.getContextPath() %>/view/insertUniform.jsp">商品追加</a></td></tr>
 			<tr><td></td></tr>
 			<tr><td></td></tr>
 			<tr><td><a href="<%=request.getContextPath() %>/view/menuAdmin.jsp">管理者メニューへ</a></td></tr>

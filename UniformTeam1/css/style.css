@@ -1,4 +1,56 @@
-.user{
+	h1{
+	text-align:center;
+	}
+
+	h2{
+	text-align:center;
+	}
+
+	table{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	}
+
+	td {
+	width:300px;
+	}
+
+	hr{
+	margin-left:auto;
+	margin-right:auto;
+	background-color: black;
+	height: 1;
+	width:1050px;
+	}
+	
+	p{
+	text-align:center;
+	}
+
+	div{
+	margin-left:auto;
+	margin-right:auto;
+	}
+	.index{
+	width:100px;
+	}
+		
+	.explanation{
+	text-align:left;
+	}
+
+	.button{
+	width:100px;
+	height:50px;
+	}
+
+	.log{
+	margin-left:700px;
+	margin-right:auto;
+	text-align:center;
+	}
+	.user{
 	color:#ff7f50;
 	text-align:center;
 	}
@@ -8,6 +60,16 @@
 	background-color:red;
 	height: 1;
 	width:1050px;
+	}
+
+	.userInfo{
+	text-align: center;
+	width:400px;
+	}	
+
+	.uniformInfo{
+	text-align: center;
+	width:700px;
 	}
 
 	.admin{
@@ -22,3 +84,51 @@
 	height: 1;
 	width:1050px;
 	}
+
+	.blue{
+	color:blue;
+	}
+
+	.cartList{
+	text-align: center;
+	width:950px;
+	}
+	.text{
+	width:350px;
+	}
+
+	.uniformList{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	border:1px solid black;
+	}
+	.solidtd {
+	border:1px solid black;
+	width:200px;
+	}
+
+	.order{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	width:1000px;
+	}
+	.long {
+	width:550px;
+	}
+
+	.orderman{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	width:1050px;
+	}
+	.ctable{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	width:1000;
+	}
+
+

@@ -54,6 +54,8 @@
 
 	<% if(cmd.equals("login")){ %>
 			<a href="<%=request.getContextPath() %>/view/login.jsp">[ログイン画面に戻る]</a>
+	<% } else if(cmd.equals("logout")){ %>
+			<a href="<%=request.getContextPath() %>/logout">[ログアウト]</a>
 	<% } else if(cmd.equals("listUniform")){ %>
 			<a href="<%=request.getContextPath() %>/listUniform">[商品一覧に戻る]</a>
 	<% } else if(cmd.equals("showCart")){ %>

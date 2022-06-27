@@ -67,6 +67,10 @@
 		<servlet-name>inputUserMapping</servlet-name>
 		<servlet-class>servlet.InputUserServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>loginCheckMapping</servlet-name>
+		<servlet-class>servlet.LoginCheckServlet</servlet-class>
+	</servlet>
 
 
 	<!-- サーブレットのマッピング -->
@@ -133,6 +137,10 @@
 	<servlet-mapping>
 		<servlet-name>inputUserMapping</servlet-name>
 		<url-pattern>/inputUser</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>loginCheckMapping</servlet-name>
+		<url-pattern>/loginCheck</url-pattern>
 	</servlet-mapping>
 
 </web-app>

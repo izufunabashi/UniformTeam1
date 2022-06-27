@@ -14,10 +14,10 @@ import bean.Registrant;
 public class RegistrantDAO {
 
 	// DB情報
-	private static String RDB_DRIVE="com.mysql.jdbc.Driver";
-	private static String URL="jdbc:mysql://localhost/kandauniformdb";
-	private static String USER="root";
-	private static String PASSWD="root123";
+	private static String RDB_DRIVE = "com.mysql.jdbc.Driver";
+	private static String URL = "jdbc:mysql://localhost/kandauniformdb";
+	private static String USER = "root";
+	private static String PASSWD = "root123";
 
 	// DB接続
 	public static Connection getConnection() {
@@ -36,27 +36,34 @@ public class RegistrantDAO {
 		Connection con = null;
 		Statement smt = null;
 
-		int count=0;
+		int count = 0;
 
-		try{
+		try {
 			// DBに接続
 			con = getConnection();
 			smt = con.createStatement();
 
 			// SQL文作成
-			String sql = "INSERT INTO registrant_info VALUES('"+registrant.getRegistrant_id()+"',"+ registrant.getAccount_id() +",'"+ registrant.getPassword() +"')";
+			String sql = "INSERT INTO registrant_info VALUES('" + registrant.getRegistrant_id() + "',"
+					+ registrant.getAccount_id() + ",'" + registrant.getPassword() + "')";
 			// SQL文発行
 			count = smt.executeUpdate(sql);
 
-		}catch(Exception e){
+		} catch (Exception e) {
 			throw new IllegalStateException(e);
-		}finally{
+		} finally {
 			// リソースの開放
-			if( smt != null ){
-				try{smt.close();}catch(SQLException ignore){}
+			if (smt != null) {
+				try {
+					smt.close();
+				} catch (SQLException ignore) {
+				}
 			}
-			if( con != null ){
-				try{con.close();}catch(SQLException ignore){}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException ignore) {
+				}
 			}
 		}
 		return count;
@@ -132,6 +139,53 @@ public class RegistrantDAO {
 				registrant.setAccount_id(rs.getInt("account_id"));
 				registrant.setPassword(rs.getString("password"));
 			}
+
+		} catch (Exception e) {
+			throw new IllegalStateException(e);
+		} finally {
+			// リソースの開放
+			if (smt != null) {
+				try {
+					smt.close();
+				} catch (SQLException ignore) {
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException ignore) {
+				}
+			}
+		}
+		return registrant;
+	}
+
+	// 入力IDの重複チェック処理(引数:2)
+	public Registrant selectById(String registrant_id) {
+
+		Connection con = null;
+		Statement smt = null;
+
+		Registrant registrant = new Registrant();
+
+		try {
+			// DBに接続
+			con = getConnection();
+			smt = con.createStatement();
+
+			// SQL文作成
+			String sql = "select * from registrant_info where registrant_id='" + registrant_id + "'";
+			// SQL文発行
+			ResultSet rs = smt.executeQuery(sql);
+
+			// 結果取得
+			while (rs.next()) {
+				registrant.setRegistrant_id(rs.getString("registrant_id"));
+				registrant.setAccount_id(rs.getInt("account_id"));
+				registrant.setPassword(rs.getString("password"));
+			}
+
+
 
 		} catch (Exception e) {
 			throw new IllegalStateException(e);

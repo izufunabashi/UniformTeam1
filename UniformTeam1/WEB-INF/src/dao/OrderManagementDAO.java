@@ -3,7 +3,7 @@ package dao;
 import java.sql.*;
 import java.util.*;
 
-import bean.OrderManagement;
+import bean.*;
 
 public class OrderManagementDAO {
 
@@ -70,30 +70,53 @@ public class OrderManagementDAO {
 	}
 
 	// データベースからすべての情報の検索を行うメソッド
-	/*
-	 * public ArrayList<OrderManagement> selectAll() {
-	 *
-	 * ArrayList<OrderManagement> list = new ArrayList<OrderManagement>(); String
-	 * sql = "SELECT * FROM order_management_info";
-	 *
-	 * Connection con = null; Statement smt = null;
-	 *
-	 * try { con = UniformDAO.getConnection(); smt = con.createStatement();
-	 *
-	 * ResultSet rs = smt.executeQuery(sql);
-	 *
-	 * while (rs.next()) { OrderManagement orderManagements = new OrderManagement();
-	 * orderManagements.setOrder_management_id(rs.getInt("order_management_id"));
-	 * orderManagements.setOrder_management_id(rs.getInt("order_management_id"));
-	 *
-	 * list.add(orderManagements); }
-	 *
-	 * } catch (Exception e) { throw new IllegalStateException(e); } finally { if
-	 * (smt != null) { try { smt.close(); } catch (SQLException ignore) { } } if
-	 * (con != null) { try { con.close(); } catch (SQLException ignore) { } } }
-	 * return list;
-	 *
-	 * }
-	 */
+
+	public ArrayList<OrderName> selectAll() {
+
+		ArrayList<OrderName> list = new ArrayList<OrderName>();
+		String sql = "SELECT a.order_management_id, b.name, a.total_price, a.order_date, a.payment, a.shipping "
+				+ "FROM order_management_info a INNER JOIN account_info b "
+				+ "ON a.account_id = b.account_id ORDER BY a.order_management_id DESC;";
+
+		Connection con = null;
+		Statement smt = null;
+
+		try {
+			con = UniformDAO.getConnection();
+			smt = con.createStatement();
+
+			ResultSet rs = smt.executeQuery(sql);
+
+			while (rs.next()) {
+				OrderName orderNames = new OrderName();
+				orderNames.setId(rs.getInt("order_management_id"));
+				orderNames.setName(rs.getString("name"));
+				orderNames.setTotal_price(rs.getInt("total_price"));
+				orderNames.setOrder_date(rs.getString("order_date"));
+				orderNames.setPayment(rs.getString("payment"));
+				orderNames.setShipping(rs.getString("shipping"));
+
+				list.add(orderNames);
+			}
+
+		} catch (Exception e) {
+			throw new IllegalStateException(e);
+		} finally {
+			if (smt != null) {
+				try {
+					smt.close();
+				} catch (SQLException ignore) {
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException ignore) {
+				}
+			}
+		}
+		return list;
+
+	}
 
 }

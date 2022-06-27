@@ -23,7 +23,7 @@
 	height: 1;
 	width:1050px;
 	}
-	
+
 	p{
 	text-align:center;
 	}
@@ -35,7 +35,7 @@
 	.index{
 	width:100px;
 	}
-		
+
 	.explanation{
 	text-align:left;
 	}
@@ -65,7 +65,7 @@
 	.userInfo{
 	text-align: center;
 	width:400px;
-	}	
+	}
 
 	.uniformInfo{
 	text-align: center;
@@ -130,5 +130,7 @@
 	text-align:center;
 	width:1000;
 	}
-
+.error{
+	color:  #ff0000;
+	}
 
